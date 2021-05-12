@@ -10,6 +10,15 @@ export class AppComponent {
     { type: "server", name: "test", content: "This is a test!" },
   ];
 
+  isEven: boolean = true;
+  count: number;
+
+  onFireInterval(count: number) {
+    console.log(count);
+    this.isEven = count % 2 === 0 ? true : false;
+    this.count = count;
+  }
+
   onServerCreated(eventData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
       type: "server",
