@@ -18,11 +18,21 @@ export class AppComponent {
     });
   }
 
-  onBlueprintCreated(eventData: { bpName: string; bpContent: string }) {
+  onBlueprintCreated(eventData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
       type: "blueprint",
-      name: eventData.bpName,
-      content: eventData.bpContent,
+      name: eventData.serverName,
+      content: eventData.serverContent,
     });
+  }
+
+  onChangeFirst() {
+    if (this.serverElements[0]) {
+      this.serverElements[0].name = "changed!";
+    }
+  }
+
+  OnDestroyFirst() {
+    this.serverElements.splice(0, 1);
   }
 }
